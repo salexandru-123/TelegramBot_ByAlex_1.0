@@ -113,22 +113,37 @@ async Task HandleMessage(Telegram.Bot.Types.Message msg)
 
 async Task HandleCommand(long userId, string command)
 {
+    string message = "";
+    string noUsernamesMessage = "";
     switch (command)
     {
+        case "/help":
+            message = $"Commands list: {Environment.NewLine}/help{Environment.NewLine}/all{Environment.NewLine}/stop{Environment.NewLine}/scream ";
+            await bot.SendMessage(chatId, message);
+            break;
         case "/all":
-            string message = "";
             //make it so it makes a message with everyone name from chat with '@' before the username
+            
             var chats = await client.Messages_GetAllChats();
-            var channel = (Channel)chats.chats[2267067820]; // the channel we want
+            foreach(var chat in chats.chats){Console.WriteLine(chat.ToString());}
+            long newChatId= (long)Convert.ToDouble(chatId.Substring(Math.Max(0, chatId.Length -10)));
+            if(!chats.chats.ContainsKey(newChatId)){break;}
+            var channel = (Channel)chats.chats[newChatId]; // the channel we want
             for (int offset = 0; ;)
             {
                 var participants = await client.Channels_GetParticipants(channel, null, offset);
-                foreach (var (id, user) in participants.users)
+                foreach (var (id, user) in participants.users){
+                    if(string.IsNullOrEmpty(user.username)){
+                        noUsernamesMessage += $"[{user}](tg://user?id={user.id}) ";
+                        continue;
+                    }
                     message += $"{user} ";
+                }
                 offset += participants.participants.Length;
                 if (offset >= participants.count || participants.participants.Length == 0) break;
             }
             await bot.SendMessage(chatId, message);
+            if(noUsernamesMessage != "") await bot.SendMessage(chatId, noUsernamesMessage, parseMode:ParseMode.MarkdownV2);
             
             break;
         case "/scream":
@@ -146,7 +161,7 @@ async Task HandleCommand(long userId, string command)
 
         case "/stop":
             await bot.SendMessage(chatId, "Hasta la vista, baby!");
-            Environment.Exit(1);
+
             break;
     }
 

@@ -16,3 +16,4 @@ C:\Users\Alex\Desktop\Projects\C#\Telegram\Bots\MoviaBot\TelegramBot2\obj\Debug\
 C:\Users\Alex\Desktop\Projects\C#\Telegram\Bots\MoviaBot\TelegramBot2\obj\Debug\net8.0\TelegramBot2.genruntimeconfig.cache
 C:\Users\Alex\Desktop\Projects\C#\Telegram\Bots\MoviaBot\TelegramBot2\obj\Debug\net8.0\ref\TelegramBot2.dll
 C:\Users\Alex\Desktop\Projects\C#\Telegram\Bots\MoviaBot\TelegramBot2\bin\Debug\net8.0\WTelegramClient.dll
+C:\Users\Alex\Desktop\Projects\C#\Telegram\Bots\MoviaBot\TelegramBot2\obj\Debug\net8.0\TelegramBot2.sourcelink.json
