@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.ExceptionServices;
 using System.Text.RegularExpressions;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -86,7 +87,7 @@ async Task HandleMessage(Telegram.Bot.Types.Message msg)
     chatId = msg.Chat.Id.ToString();
     Debug.WriteLineIf(chatId != "",$"Chat Id: {chatId}");
     ChatFullInfo chatInfo = await bot.GetChat(chatId);
-    Debug.WriteLineIf(chatInfo != null,chatInfo.ToString());
+    Debug.WriteLineIf(chatInfo != null,chatInfo!.ToString());
     Debug.WriteLineIf(members.Count > 0,$"Members found: {members.Count}");
     if (user is null)
         return;
@@ -102,11 +103,11 @@ async Task HandleMessage(Telegram.Bot.Types.Message msg)
     else if (screaming && text.Length > 0)
     {
         // To preserve the markdown, we attach entities (bold, italic..)
-        await bot.SendTextMessageAsync(user.Id, text.ToUpper(), entities: msg.Entities);
+        await bot.SendMessage(user.Id, text.ToUpper(), entities: msg.Entities);
     }
     else
     {   // This is equivalent to forwarding, without the sender's name
-        await bot.CopyMessageAsync(user.Id, user.Id, msg.MessageId);
+        await bot.CopyMessage(user.Id, user.Id, msg.MessageId);
     }
 }
 
@@ -118,7 +119,7 @@ async Task HandleCommand(long userId, string command)
     switch (command)
     {
         case "/help":
-            message = $"Commands list: {Environment.NewLine}/help{Environment.NewLine}/all{Environment.NewLine}/stop{Environment.NewLine}/scream ";
+            message = $"Commands list: {Environment.NewLine}/help{Environment.NewLine}/all{Environment.NewLine}/scream ";
             await bot.SendMessage(chatId, message);
             break;
         case "/all":
@@ -142,6 +143,7 @@ async Task HandleCommand(long userId, string command)
                 offset += participants.participants.Length;
                 if (offset >= participants.count || participants.participants.Length == 0) break;
             }
+            
             await bot.SendMessage(chatId, message);
             if(noUsernamesMessage != "") await bot.SendMessage(chatId, noUsernamesMessage, parseMode:ParseMode.MarkdownV2);
             
@@ -153,16 +155,13 @@ async Task HandleCommand(long userId, string command)
 
         case "/whisper":
             screaming = false;
+            await bot.SendAnimation(chatId,  "https://giphy.com/gifs/cartoonnetwork-dexters-laboratory-lab-dexter-G3EGcAf1Lj1AXTLN9Q");
             break;
 
         case "/menu":
             await SendMenu(userId);
             break;
 
-        case "/stop":
-            await bot.SendMessage(chatId, "Hasta la vista, baby!");
-
-            break;
     }
 
     await Task.CompletedTask;
@@ -170,7 +169,7 @@ async Task HandleCommand(long userId, string command)
 
 async Task SendMenu(long userId)
 {
-    await bot.SendTextMessageAsync(
+    await bot.SendMessage(
         userId,
         firstMenu,
         parseMode:ParseMode.Html,
@@ -195,10 +194,10 @@ async Task HandleButton(CallbackQuery query)
     }
 
     // Close the query to end the client-side loading animation
-    await bot.AnswerCallbackQueryAsync(query.Id);
+    await bot.AnswerCallbackQuery(query.Id);
 
     // Replace menu text and keyboard
-    await bot.EditMessageTextAsync(
+    await bot.EditMessageText(
         query.Message!.Chat.Id,
         query.Message.MessageId,
         text,
