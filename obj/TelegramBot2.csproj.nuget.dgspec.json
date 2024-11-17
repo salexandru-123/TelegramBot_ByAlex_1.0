@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex\\Desktop\\Projects\\C#\\Telegram\\Bots\\MoviaBot\\TelegramBot2\\TelegramBot2.csproj": {}
+    "C:\\Users\\giuse\\Desktop\\Progetti\\C#\\TelegramBot_ByAlex_1.0\\TelegramBot2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex\\Desktop\\Projects\\C#\\Telegram\\Bots\\MoviaBot\\TelegramBot2\\TelegramBot2.csproj": {
+    "C:\\Users\\giuse\\Desktop\\Progetti\\C#\\TelegramBot_ByAlex_1.0\\TelegramBot2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex\\Desktop\\Projects\\C#\\Telegram\\Bots\\MoviaBot\\TelegramBot2\\TelegramBot2.csproj",
+        "projectUniqueName": "C:\\Users\\giuse\\Desktop\\Progetti\\C#\\TelegramBot_ByAlex_1.0\\TelegramBot2.csproj",
         "projectName": "TelegramBot2",
-        "projectPath": "C:\\Users\\Alex\\Desktop\\Projects\\C#\\Telegram\\Bots\\MoviaBot\\TelegramBot2\\TelegramBot2.csproj",
-        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex\\Desktop\\Projects\\C#\\Telegram\\Bots\\MoviaBot\\TelegramBot2\\obj\\",
+        "projectPath": "C:\\Users\\giuse\\Desktop\\Progetti\\C#\\TelegramBot_ByAlex_1.0\\TelegramBot2.csproj",
+        "packagesPath": "C:\\Users\\giuse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giuse\\Desktop\\Progetti\\C#\\TelegramBot_ByAlex_1.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\giuse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

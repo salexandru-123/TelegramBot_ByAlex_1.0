@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.ExceptionServices;
 using System.Text.RegularExpressions;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -113,10 +114,20 @@ async Task HandleMessage(Telegram.Bot.Types.Message msg)
 
 async Task HandleCommand(long userId, string command)
 {
+    string message = "";
     switch (command)
     {
+        case "/help":
+            message = $"Commands list:{Environment.NewLine}"+
+            $"/help{Environment.NewLine}/all";
+            await bot.SendMessage(chatId, message);
+            break;
+
+        case "/weather":
+            
+            break;
+
         case "/all":
-            string message = "";
             //make it so it makes a message with everyone name from chat with '@' before the username
             var chats = await client.Messages_GetAllChats();
             var channel = (Channel)chats.chats[2267067820]; // the channel we want
@@ -128,6 +139,7 @@ async Task HandleCommand(long userId, string command)
                 offset += participants.participants.Length;
                 if (offset >= participants.count || participants.participants.Length == 0) break;
             }
+            
             await bot.SendMessage(chatId, message);
             
             break;
@@ -138,15 +150,14 @@ async Task HandleCommand(long userId, string command)
 
         case "/whisper":
             screaming = false;
+            await bot.SendAnimation(chatId,  "https://giphy.com/gifs/cartoonnetwork-dexters-laboratory-lab-dexter-G3EGcAf1Lj1AXTLN9Q");
             break;
 
         case "/menu":
             await SendMenu(userId);
             break;
 
-        case "/stop":
-            await bot.SendMessage(chatId, "Hasta la vista, baby!");
-            Environment.Exit(1);
+        default:
             break;
     }
 
