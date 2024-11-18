@@ -38,8 +38,9 @@ InlineKeyboardMarkup secondMenuMarkup = new(
         new[] { InlineKeyboardButton.WithUrl(tutorialButton, "https://core.telegram.org/bots/tutorial") }
     }
 );
-
-var bot = new TelegramBotClient(ConfigClass.api_key);
+Console.WriteLine("Enter api key: ");
+string? apiKey = Console.ReadLine();
+var bot = new TelegramBotClient(apiKey != null ? apiKey : "");
 
 using var cts = new CancellationTokenSource();
 
