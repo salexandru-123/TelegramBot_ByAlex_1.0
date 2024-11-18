@@ -39,7 +39,7 @@ InlineKeyboardMarkup secondMenuMarkup = new(
     }
 );
 
-var bot = new TelegramBotClient("7621712307:AAFaYoM2JOhi9YjVYiunmdMLCnjQuzFxTIc");
+var bot = new TelegramBotClient("your_api_key_here");
 
 using var cts = new CancellationTokenSource();
 
