@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\TelegramBot2.exe
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\TelegramBot2.dll
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\TelegramBot2.deps.json
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\TelegramBot2.runtimeconfig.json
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\TelegramBot2.pdb
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\System.Text.Json.dll
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\Telegram.Bot.dll
+C:\Users\Alex\Desktop\projects\C#\TelegramBot_ByAlex_1.0\bin\Release\net8.0\publish\WTelegramClient.dll
