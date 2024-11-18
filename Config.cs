@@ -23,7 +23,7 @@ class ConfigClass{
 
             case "first_name": return "Stefan Alexandru";      // if sign-up is required
             case "last_name": return "Soreanu";        // if sign-up is required
-            case "password": return "password123";     // if user has enabled 2FA
+            case "password": return "your_2FA_password";     // if user has enabled 2FA
             default: return null!;                  // let WTelegramClient decide the default config
         }
     }
