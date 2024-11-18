@@ -39,7 +39,7 @@ InlineKeyboardMarkup secondMenuMarkup = new(
     }
 );
 
-var bot = new TelegramBotClient("your_api_key_here");
+var bot = new TelegramBotClient(ConfigClass.api_key);
 
 using var cts = new CancellationTokenSource();
 
@@ -143,7 +143,6 @@ async Task HandleCommand(long userId, string command)
                 offset += participants.participants.Length;
                 if (offset >= participants.count || participants.participants.Length == 0) break;
             }
-            
             await bot.SendMessage(chatId, message);
             if(noUsernamesMessage != "") await bot.SendMessage(chatId, noUsernamesMessage, parseMode:ParseMode.MarkdownV2);
             
